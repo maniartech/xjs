@@ -34,7 +34,6 @@ this.load = function load(x) {
     /**
      *
      */
-
     x.last = function last(array1, number) {
 
         if(number === undefined) {
@@ -50,7 +49,6 @@ this.load = function load(x) {
     /**
      *
      */
-
     x.intersection = function intersection(array1, array2) {
         var retArray = [],
             i,j;
@@ -110,10 +108,10 @@ this.load = function load(x) {
             return -1;
     };
 
+
     /**
      *
      */
-
     x.sortedIndex = function sortedIndex (array1, number) {
 
         var i;
@@ -149,5 +147,3 @@ this.load = function load(x) {
 
 
   };
-
-

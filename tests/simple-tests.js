@@ -5,9 +5,6 @@ var x = require("../src/x").x;
 //load other x modules
 require('../src/x.array').load(x);
 
-
-
-
 var a = [1,2,3,4,5,6],
     array1 = [1,2,3,4,5,6],
     array2 = [1,4,6,8,9,10],
@@ -29,3 +26,4 @@ console.log(x.indexofvalue(c,5));
 console.log(x.lastindexof(d,3));
 console.log(x.sortedIndex(e,55));
 console.log(x.merged(f,[30,40,50]));
+
