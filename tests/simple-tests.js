@@ -18,12 +18,12 @@ var a = [1,2,3,4,5,6],
 
 
 console.log(x.range(0,5,2));
-console.log(x.first(a,2));
+console.log(x.first(a,1));
 console.log(x.last(a,2));
 console.log(x.intersection(array1,array2));
-console.log(x.indexofbool(a,7));
-console.log(x.indexofvalue(c,5));
-console.log(x.lastindexof(d,3));
+console.log(x.indexOf(a,7));
+console.log(x.indexValue(c,5));
+console.log(x.lastIndexOf(d,3));
 console.log(x.sortedIndex(e,55));
-console.log(x.merged(f,[30,40,50]));
+console.log(x.merge(f,[30,40,50]));
 
