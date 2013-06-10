@@ -255,7 +255,7 @@ this.load = function load(x) {
      *
      * @version 1.0
      */
-     x.merge = function merge(array1, array2) {
+    x.merge = function merge(array1, array2) {
 
      var result = {},
         i,
@@ -271,6 +271,26 @@ this.load = function load(x) {
         return result;
     };
 
+    /**
+     *
+     *
+     */
+
+    x.initial = function(array, n, n1) {
+
+        return array.slice.call(array, 0, array.length - ((n === null) || n1 ? 1 : n));
+
+    };
+    /**
+     *
+     *
+     */
+
+    x.rest = function(array, n, n1) {
+
+        return array.slice.call(array , (n === null) || n1 ? 1 : n);
+
+    };
 
 
   };

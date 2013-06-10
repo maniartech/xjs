@@ -12,7 +12,10 @@ var a = [1,2,3,4,5,6],
     c=[1,2,8,5,6,48,45,4],
     d=[1,2,3,4,5,6,4,2,3,5],
     e=[10,20,30,40,50,60];
-    f=['moe', 'larry', 'curly'];
+    f=['moe', 'larry', 'curly'],
+    d=[5,4,3,2,1],
+    e=[5,4,3,2,1];
+
 
 
 
@@ -26,4 +29,6 @@ console.log(x.indexValue(c,5));
 console.log(x.lastIndexOf(d,3));
 console.log(x.sortedIndex(e,55));
 console.log(x.merge(f,[30,40,50]));
+console.log(x.initial(d,1));
+console.log(x.rest(e,1));
 
