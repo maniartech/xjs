@@ -14,7 +14,10 @@ var a = [1,2,3,4,5,6],
     e=[10,20,30,40,50,60];
     f=['moe', 'larry', 'curly'],
     d=[5,4,3,2,1],
-    e=[5,4,3,2,1];
+    e=[5,4,3,2,1],
+    h=[0, 1, false, 2, '', 3],
+    i=[1, 2, 1, 0, 3, 1, 4],
+    g=['moe', 'larry', 'curly'];
 
 
 
@@ -31,4 +34,7 @@ console.log(x.sortedIndex(e,55));
 console.log(x.merge(f,[30,40,50]));
 console.log(x.initial(d,1));
 console.log(x.rest(e,1));
+console.log(x.compact(h));
+console.log(x.without(i,1,0));
+console.log(x.zip(g,[30,40,50],[true,false,false]));
 

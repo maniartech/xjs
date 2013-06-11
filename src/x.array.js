@@ -257,23 +257,35 @@ this.load = function load(x) {
      */
     x.merge = function merge(array1, array2) {
 
-     var result = {},
-        i,
-        iLen = array1.length;
+        var result = {},
+          i,
+          iLen = array1.length;
 
-         if (array1.length !== array2.length) {
-            throw new Error("Both array must have same length");
-        }
+            if (array1.length !== array2.length) {
+              throw new Error("Both array must have same length");
+             }
 
-        for (i = 0; i < iLen; i += 1) {
-            result[array1[i]] = array2[i];
-        }
-        return result;
+                for (i = 0; i < iLen; i += 1) {
+                    result[array1[i]] = array2[i];
+                }
+                return result;
     };
 
     /**
+     * Returns everything but the last entry of the array is removed.
      *
+     * @function x.initial(array, n, n1 )
+     * @params {number} array The array value in x.initial.
+     * @params {number} n The  n number having null value in x.initial.
+     * @params {number} n1 The n number value in x.initial.
+     * @returns {Array ,n, n1} If number of elements n is passed then it return everything
+     * but last array is removed.If n number value is not provided it return the empty array.
      *
+     * @example
+     * var x=[5,4,3,2,1];
+     * console.log(x.initial(x,1));  //Prints [5,4,3,2]
+     *
+     * @version 1.0
      */
 
     x.initial = function(array, n, n1) {
@@ -282,15 +294,122 @@ this.load = function load(x) {
 
     };
     /**
+     * Returns everything but the first entry of the array is removed.
      *
+     * @function x.rest(array, n, n1 )
+     * @params {number} array The array1 value in x.rest.
+     * @params {number} n The  n number having null value in x.initial.
+     * @params {number} n1 The n number value in x.initial.
+     * @returns {Array ,n,n1} If number of elements n is passed then it return everything
+     * but first array is removed.If n number value is not provided it return the empty array.
      *
+     * @example
+     * var x=[5,4,3,2,1];
+     * console.log(x.rest(x,1));  //Prints [4,3,2,1]
+     *
+     * @version 1.0
      */
 
     x.rest = function(array, n, n1) {
 
-        return array.slice.call(array , (n === null) || n1 ? 1 : n);
+        return array.slice.call(array ,n === null || n1 ? 1 : n);
 
     };
 
+    /**
+     * Returns a copy of the array with all falsy values removed.
+     * All falsy value are removed false, null, 0, "", undefined and NaN.
+     *
+     * @function x.compact(array)
+     * @params {number} array The array1 value in x.compact.
+     * @returns {Array} If the array has all the falsy values it remove the falsy
+     * values return only the number of an array
+     * If array having all falsy value it return the empty array.
+     *
+     * @example
+     * var x=[0, 1, false, 2, '', 3];
+     * console.log(x.compact(x));  //Prints [1,2,3]
+     *
+     * @version 1.0
+     */
 
-  };
+    x.compact = function compact (array) {
+        var retArr=[],
+           i;
+
+            for(i=0; i < array.length; i++) {
+                if(array[i]){
+                    retArr.push(array[i]);
+                }
+            }
+            return retArr;
+   };
+
+   /**
+     * Returns a copy of the array with all dublicates value are removed.
+     * The value which are repeat in array are removed.
+     *
+     * @function x.without(array, number)
+     * @params {number} array The array1 value in x.without.
+     * @params {number} number The number is to find the value in x.without.
+     * @returns {Array, value} If number of elements to be fecthed is provided
+     * then remove the repeated number an return the number of elements.
+     * If n number value is not provided it return all the number also the dublicates numbers.
+     *
+     * @example
+     * var x= [1, 2, 1, 0, 3, 1, 4];
+     * console.log(x.without(x,1,0));  //Prints [2,3,4]
+     *
+     * @version 1.0
+     */
+
+
+    x.without =function without(array,number) {
+        for(var i = 0; i < array.length; i++){
+             for(var j = 1; j < arguments.length; j++){
+                if(array[i] === arguments[j]){
+                    array.splice(i,1);
+                }
+            }
+        }
+        return array;
+    };
+
+     /**
+     * Merges together the values of each of the arrays with the values at the
+     * corresponding position.if the value is passed then,it merged the value
+     * to that object
+     *
+     * @function x.zip(array1, array2,array3 )
+     * @params {number} array1 The array1 value in x.zip.
+     * @params {number} array2 The array2 is to merged the value in x.zip.
+     * @params {number} array2 The array3 is to merged the value in x.zip.
+     * @returns {Array1 , Array2, Array3} If number of elements array2,array3 is passed then
+     * it merged the value with an array1. If array2 value is not provided returns the Error.
+     *
+     * @example
+     * var x=['moe', 'larry', 'curly'];
+     * console.log(x.zip(x,[30,40,50].[true,false,false]));
+     * //Prints {'moe': 30, true ,'larry': 40, false ,'curly': 50, false}
+     *
+     * @version 1.0
+     */
+
+     x.zip = function zip (array1, array2,array3) {
+
+        var result = {},
+            i,
+            iLen = array1.length;
+
+              if (array1.length !== array2.length) {
+                throw new Error("Both array must have same length");
+              }
+
+                    for (i = 0; i < iLen; i += 1) {
+                        result [array1[i]] = [array2[i],array3[i]];
+                    }
+                return result;
+    };
+
+
+};
