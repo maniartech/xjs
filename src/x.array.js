@@ -1,6 +1,5 @@
 
-
-
+//Array functions in xlib
 this.load = function load(x) {
     "use strict";
 
@@ -23,7 +22,7 @@ this.load = function load(x) {
             i;
 
         for(i = start; step > 0 ? i < stop : i > stop; i += step) {
-                result.push(i);
+            result.push(i);
         }
         return result;
     };
@@ -258,17 +257,17 @@ this.load = function load(x) {
     x.merge = function merge(array1, array2) {
 
         var result = {},
-          i,
-          iLen = array1.length;
+            i,
+            iLen = array1.length;
 
-            if (array1.length !== array2.length) {
-              throw new Error("Both array must have same length");
-             }
+        if (array1.length !== array2.length) {
+            throw new Error("Both array must have same length");
+        }
 
-                for (i = 0; i < iLen; i += 1) {
-                    result[array1[i]] = array2[i];
-                }
-                return result;
+        for (i = 0; i < iLen; i += 1) {
+            result[array1[i]] = array2[i];
+        }
+        return result;
     };
 
     /**
@@ -287,12 +286,10 @@ this.load = function load(x) {
      *
      * @version 1.0
      */
-
     x.initial = function(array, n, n1) {
-
         return array.slice.call(array, 0, array.length - ((n === null) || n1 ? 1 : n));
-
     };
+
     /**
      * Returns everything but the first entry of the array is removed.
      *
