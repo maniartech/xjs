@@ -16,11 +16,11 @@
 
     };
 
-    x.plugins.attach = function attach(obj) {
-        for(var key in obj) {
-            if (obj[key].is)
-        }
-    };
+    // x.plugins.attach = function attach(obj) {
+    //     for(var key in obj) {
+    //         if (obj[key].is)
+    //     }
+    // };
 
     root.x = x;
 

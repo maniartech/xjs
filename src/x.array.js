@@ -130,8 +130,8 @@ this.load = function load(x) {
      *
      * @function x.indexOf(array , n )
      * @params {number} array The array value in x.indexOf.
-     * @params {number} n The n number value which is provided to find the statement.
-     * @returns {Array , value} If number of elements to be fecthed is provided
+     * @params {number} val The value which needs to be searched for its position.
+     * @returns {number} If number of elements to be fecthed is provided
      * then returns a true statement otherwise false statement.If n number
      * is not provided return false statement
      *
@@ -141,16 +141,27 @@ this.load = function load(x) {
      *
      * @version 1.0
      */
-    x.indexOf = function indexOf(array,n) {
+    x.indexOf = Array.indexOf || function indexOf(array, val) {
+        var i,
+            iLen = array.length;
 
-        return array.indexOf(n) !== -1;
+        if (array.indexOf) {
+            return array.indexOf(n);
+        }
+
+        for(i=0; i<iLen; i += 1) {
+            if (array[i] === val) {
+                return i;
+            }
+        }
+        return -1;
     };
 
     /**
      * Returns the index value of an array. If the value provided in the array,
      * then return a Position of that element.
      *
-     * @function x.indexValue(array , n )
+     * @function x.exists(array, n)
      * @params {number} array The array value in x.indexValue.
      * @params {number} n The  n number is to find the value in x.indexValue.
      * @returns {Array , value} If number of elements to be fecthed is provided
@@ -158,22 +169,23 @@ this.load = function load(x) {
      * is not provided return -1 (which means number is not in the array)
      *
      * @example
-     * var x=[1,2,3,4,5,6];
-     * console.log(x.indexValue(x,3));  // Prints 2
+     * var arr = [1,2,3,4,5,6];
+     * console.log(x.indexValue(arr, 3));  // Prints 2
      *
      * @version 1.0
      */
-    x.indexValue = function indexValue(array,n) {
+    x.exists = function exists(array, val) {
 
         var i;
 
             for(i = 0; i < array.length; i++) {
-                if(array[i] === n) {
-                    return i;
+                if(array[i] === val) {
+                    return true;
                 }
             }
-            return -1;
+            return false;
     };
+
 
     /**
      * Returns the index of the last occurrence of value in the array.
@@ -334,12 +346,12 @@ this.load = function load(x) {
         var retArr=[],
            i;
 
-            for(i=0; i < array.length; i++) {
-                if(array[i]){
-                    retArr.push(array[i]);
-                }
+        for(i=0; i < array.length; i++) {
+            if(array[i]){
+                retArr.push(array[i]);
             }
-            return retArr;
+        }
+        return retArr;
    };
 
    /**
@@ -398,15 +410,14 @@ this.load = function load(x) {
             i,
             iLen = array1.length;
 
-              if (array1.length !== array2.length) {
-                throw new Error("Both array must have same length");
-              }
+        if (array1.length !== array2.length) {
+            throw new Error("Both array must have same length");
+        }
 
-                    for (i = 0; i < iLen; i += 1) {
-                        result [array1[i]] = [array2[i],array3[i]];
-                    }
-                return result;
+        for (i = 0; i < iLen; i += 1) {
+            result [array1[i]] = [array2[i],array3[i]];
+        }
+        return result;
     };
-
 
 };
