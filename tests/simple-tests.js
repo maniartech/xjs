@@ -4,6 +4,10 @@ var x = require("../src/x").x;
 
 //load other x modules
 require('../src/x.array').load(x);
+require('../src/x.objects').load(x);
+
+
+//  x.array Functions //
 
 var firArray   = [1,2,3,4,5,6],
     lstArray   = [1,2,3,4,5,6],
@@ -22,22 +26,45 @@ var firArray   = [1,2,3,4,5,6],
     flatArray = [[1, 2], [3, 4], [5, [6, [7, 8]]]], retArray = [];
 
 
+// console.log(x.range(0, 5, 2));
+// console.log(x.first(firArray, 1));
+// console.log(x.last(lstArray, 2));
+// console.log(x.intersection(intrArray1, intrArray2));
+// console.log(x.indexOf(indxArray, 6));
+// console.log(x.exists(extArray, 5));
+// console.log(x.lastIndexOf(lstInArray, 3));
+// console.log(x.sortedIndex(srtInArray, 55));
+// console.log(x.merge(mergArray, [30, 40, 50]));
+// console.log(x.initial(initArray, 1));
+// console.log(x.rest(rstArray, 1));
+// console.log(x.compact(compArray));
+// console.log(x.without(witArray, 1, 0));
+// console.log(x.zip(zpArray, [30,40,50], [true,false,false]));
+// x.flatten(flatArray,retArray);
+// console.log(retArray);
 
 
-console.log(x.range(0, 5, 2));
-console.log(x.first(firArray, 1));
-console.log(x.last(lstArray, 2));
-console.log(x.intersection(intrArray1, intrArray2));
-console.log(x.indexOf(indxArray, 6));
-console.log(x.exists(extArray, 5));
-console.log(x.lastIndexOf(lstInArray, 3));
-console.log(x.sortedIndex(srtInArray, 55));
-console.log(x.merge(mergArray, [30, 40, 50]));
-console.log(x.initial(initArray, 1));
-console.log(x.rest(rstArray, 1));
-console.log(x.compact(compArray));
-console.log(x.without(witArray, 1, 0));
-console.log(x.zip(zpArray, [30,40,50], [true,false,false]));
-x.flatten(flatArray,retArray);
-console.log(retArray);
+//   x.objects Function   //
 
+var keyObj  = ({one : 1, two : 2, three : 3}),
+    valObj  = ({one : 1, two : 2, three : 3}),
+    pairObj = ({one : 1, two : 2, three : 3}),
+    invtObj = ({Moe: "Moses", Larry: "Louis", Curly: "Jerome"}),
+
+    funObj  = ({
+        name: "test",
+        init: function() {},
+        tpString: function() {
+            return "Function Object";
+        },
+        a: function() {},
+        b: function () {}
+    });
+
+
+console.log(x.keys(keyObj));
+console.log(x.values(valObj));
+console.log(x.pairs(pairObj));
+console.log(x.invert(invtObj));
+console.log(x.functions(funObj));
+console.log(x.fields(funObj))

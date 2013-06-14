@@ -33,7 +33,7 @@ this.load = function load(x) {
      * if the element/value in the array is empty it return the empty array.
      *
      * @function x.first(array, n)
-     * @params {number} array The array value in x.first.
+     * @params {Array} array The array value in x.first.
      * @params {number} n The number which is passed to return the first
      * element of an array.
      * @returns {Array, value} If number of elements to be fecthed is provided
@@ -63,7 +63,7 @@ this.load = function load(x) {
      * if the element/value in the array is empty it return the last element of array.
      *
      * @function x.last(array, n)
-     * @params {number} array The array value in x.last.
+     * @params {Array} array The array value in x.last.
      * @params {number} n The number which is passed to return the last
      * element of an array.
      * @returns {Array, value} If number of elements to be fecthed is provided
@@ -92,7 +92,7 @@ this.load = function load(x) {
      * from both the arrays.
      *
      * @function x.intersection(array1, array2)
-     * @params {number} array1 The array1 value in x.intersection.
+     * @params {Array} array1 The array1 value in x.intersection.
      * @params {number} array2 The array2 value in x.intersection
      * @returns {Array1, Array2} Both the array intersect and returns an array
      * containting dublicates number of an elements. If array is not provided
@@ -126,7 +126,7 @@ this.load = function load(x) {
      * in the array,then
      *
      * @function x.indexOf(array, val)
-     * @params {number} array The array value in x.indexOf.
+     * @params {Array} array The array value in x.indexOf.
      * @params {number} val The value which needs to be searched for its position.
      * @returns {number} If number of elements to be fecthed is provided
      * then returns a true statement otherwise false statement.If n number
@@ -159,7 +159,7 @@ this.load = function load(x) {
      * then return a statement True or False.
      *
      * @function x.exists(array, val)
-     * @params {number} array The array value in x.exists.
+     * @params {Array} array The array value in x.exists.
      * @params {number} val The value which needs to be searched for its statement.
      * @returns {number} If number of elements to be fecthed is provided
      * then returns a statement of an array either True or False. If n number
@@ -189,7 +189,7 @@ this.load = function load(x) {
      * If the value provided in the array,then return a last Position of that element.
      *
      * @function x.lastIndexOf(array, val)
-     * @params {number} array The array value in x.lastIndexOf.
+     * @params {Array} array The array value in x.lastIndexOf.
      * @params {number} val The value which needs to be searched for its last position.
      * @returns {number} If number of elements to be fecthed is provided
      * an having a dublicate value in that array then returns a last position of the number
@@ -221,7 +221,7 @@ this.load = function load(x) {
      * be inserted into the list in order to maintain the list's sorted order
      *
      * @function x.sortedIndex(array, val)
-     * @params {number} array The array value in x.sortedIndex.
+     * @params {Array} array The array value in x.sortedIndex.
      * @params {number} val The value which needs to be searched for its position.
      * @returns {Array , value} If number of elements to be fecthed is provided
      * then return the position of the number of an element. If n number
@@ -251,7 +251,7 @@ this.load = function load(x) {
      * it merged the value to that object.
      *
      * @function x.merge(array1, array2)
-     * @params {number} array1 The array1 value in x.merge.
+     * @params {Array} array1 The array1 value in x.merge.
      * @params {number} array2 The array2 is to merged the value in x.merge.
      * @returns {Array1 , Array2} If number of elements array2 is passed then it merged the
      * value with an array1. If array2 value is not provided returns the Error.
@@ -281,7 +281,7 @@ this.load = function load(x) {
      * Returns everything but the last entry of the array is removed.
      *
      * @function x.initial(array, n, val)
-     * @params {number} array The array value in x.initial.
+     * @params {Array} array The array value in x.initial.
      * @params {number} n The  n number having value in x.initial.
      * @params {number} val The value which needs to be searched to remove the Last entry.
      * @returns {Array, number} If number of an elements is passed then it return everything
@@ -301,7 +301,7 @@ this.load = function load(x) {
      * Returns everything but the first entry of the array is removed.
      *
      * @function x.rest(array, n, val)
-     * @params {number} array The array1 value in x.rest.
+     * @params {Array} array The array1 value in x.rest.
      * @params {number} n The  n number having null value in x.initial.
      * @params {number} val The value which needs to be searched to remove the First entry.
      * @returns {Array ,n,n1} If number of elements n is passed then it return everything
@@ -322,8 +322,8 @@ this.load = function load(x) {
      * All falsy value are removed false, null, 0, "", undefined and NaN.
      *
      * @function x.compact(array)
-     * @params {number} array The array1 value in x.compact.
-     * @returns {Array} If the array has all the falsy values it remove the falsy
+     * @params {Array} array The array1 value in x.compact.
+//   * @returns {number} If the array has all the falsy values it remove the falsy
      * values return only the number of an array
      * If array having all falsy value it return the empty array.
      *
@@ -351,7 +351,7 @@ this.load = function load(x) {
      * The value which are repeat in array are removed.
      *
      * @function x.without(array, number)
-     * @params {number} array The array1 value in x.without.
+     * @params {Array} array The array1 value in x.without.
      * @params {number} number The value which needs to be searched
      * to remove the dublicates values.
      * @returns {Array, value} If number of elements to be fecthed is provided
@@ -384,7 +384,7 @@ this.load = function load(x) {
      * to that object
      *
      * @function x.zip(array1, array2, array3)
-     * @params {number} array1 The array1 value in x.zip.
+     * @params {Array} array1 The array1 value in x.zip.
      * @params {number} array2 The array2 is to merged the value in x.zip.
      * @params {number} array2 The array3 is to merged the value in x.zip.
      * @returns {Array2, Array3} If number of elements array2,array3 is passed then
@@ -416,7 +416,7 @@ this.load = function load(x) {
      * Flattens a nested array
      *
      * @function x.flatten(array, val)
-     * @params {number} array The array value in x.flatten.
+     * @params {Array} array The array value in x.flatten.
      * @params {number} val The val is the value in x.flatten
      * @returns {Array} If array is flatten then remove the flatten from the array and
      * return the number in an array format. If array value is not provided returns the Error.
