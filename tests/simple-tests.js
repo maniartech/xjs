@@ -79,6 +79,7 @@ console.log(x.isObject({name:"talha"}));
 console.log(x.isNullOrUndef());
 console.log(x.isString("moe"));
 console.log(x.isNumber(8.5 * 2));
-console.log(x.isfinite(-101));
+console.log(x.isFinites(-101));
 console.log(x.isBoolean(null));
 console.log(x.isDate(new Date()));
+console.log(x.isRegExp(/moe/));
