@@ -4,8 +4,17 @@ this.load = function load(x) {
     "use strict";
 
     /**
+     * Retrieve all the names of the object's properties.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the keys need to be retrived.
+     * @returns {Array} Returns a string array of object keys.
      *
+     * @example
+     * var keyObject = ({one : 1, two : 2, three : 3});
+     * console.log(x.keys(keyObject));  // Prints [one, Two, Three]
+     *
+     * @version 1.0
      */
     x.keys = function keys(obj) {
         var retArr = [],
@@ -18,8 +27,17 @@ this.load = function load(x) {
     };
 
     /**
+     * Returns all the values of the object's properties.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the values need to be retrived.
+     * @returns {Array} Returns a string array of object values.
      *
+     * @example
+     * var valObject = ({one : 1, two : 2, three : 3});
+     * console.log(x.values(valObject));  // Prints [1, 2, 3]
+     *
+     * @version 1.0
      */
     x.values = function values(obj) {
         var retArr = [],
@@ -32,9 +50,19 @@ this.load = function load(x) {
     };
 
     /**
+     * Convert an object into list of pairs.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the pairs need to be retrived.
+     * @returns {Array} Returns a string array of object pairs.
      *
+     * @example
+     * var pairObject = ({one : 1, two : 2, three : 3});
+     * console.log(x.pairs(pairObject));  // Prints [["one", 1], ["two", 2], ["three", 3]]
+     *
+     * @version 1.0
      */
+
     x.pairs = function pairs(obj) {
         var retArr = [],
             key;
@@ -46,10 +74,21 @@ this.load = function load(x) {
     };
 
     /**
+     * Returns object where the keys have become the values and the values have become the
+     * keys.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the invert need to be retrived.
+     * @returns {Object} Returns a string of object invert.
      *
+     * @example
+     * var invtObj = ({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
+     * console.log(x.invert(invtObj));
+     * // Prints {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
+     *
+     * @version 1.0
      */
-    x.invert = function invert(obj) {
+     x.invert = function invert(obj) {
         var retObj = {},
             key;
 
@@ -60,8 +99,25 @@ this.load = function load(x) {
     };
 
     /**
+     * Returns a list of name of method object in a sorted format.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the functions need to be retrived.
+     * @returns {Object} Returns a string array of object functions.
      *
+     * @example
+     * var funObj  = ({
+     * name: "test",
+     * init: function() {},
+     * tpString: function() {
+     * return "Function Object";
+     * },
+     * a: function() {},
+     * b: function () {} });
+     * console.log(x.functions(funObject));
+     * // Prints {'a', 'b', 'init', 'tpString'}
+     *
+     * @version 1.0
      */
     x.functions = function functions(obj) {
         var retArr = [],
@@ -76,8 +132,25 @@ this.load = function load(x) {
     };
 
     /**
+     * Returns the name of an object in the sorted format.
      *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the fields need to be retrived.
+     * @returns {Array} Returns a string array of object fields.
      *
+     * @example
+     * var funObj  = ({
+     * name: "test",
+     * init: function() {},
+     * tpString: function() {
+     * return "Function Object";
+     * },
+     * a: function() {},
+     * b: function () {} });
+     * console.log(x.fields(funObj));
+     * // Prints {'name'}
+     *
+     * @version 1.0
      */
     x.fields = function fields(obj) {
         var retArr = [],
@@ -91,10 +164,17 @@ this.load = function load(x) {
         return retArr.sort();
     };
 
+
+    x.clone = function clone(obj) {
+        if (Object(obj)){
+            return obj;
+        }
+    };
     /**
      *
      *
      */
+
 
 
 

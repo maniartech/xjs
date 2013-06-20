@@ -5,7 +5,7 @@ var x = require("../src/x").x;
 //load other x modules
 require('../src/x.array').load(x);
 require('../src/x.objects').load(x);
-
+require('../src/x.is').load(x);
 
 //  x.array Functions //
 
@@ -67,4 +67,18 @@ console.log(x.values(valObj));
 console.log(x.pairs(pairObj));
 console.log(x.invert(invtObj));
 console.log(x.functions(funObj));
-console.log(x.fields(funObj))
+console.log(x.fields(funObj));
+console.log(x.clone({name : 'moe'}));
+
+
+
+//   x.isFunction //
+
+console.log(x.isArray([1,2,3]));
+console.log(x.isObject({name:"talha"}));
+console.log(x.isNullOrUndef());
+console.log(x.isString("moe"));
+console.log(x.isNumber(8.5 * 2));
+console.log(x.isfinite(-101));
+console.log(x.isBoolean(null));
+console.log(x.isDate(new Date()));
