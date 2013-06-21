@@ -14,6 +14,7 @@
 var src = [
         'src/x.js',
         'src/x.is.js',
+        'src/x.string.js',
         'src/x.array.js',
         'src/x.objects.js'
     ];
