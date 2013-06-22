@@ -1,8 +1,6 @@
 
 
-//Recognition functions in xlib
-this.load = function load(x) {
-    "use strict";
+    //Recognition functions in xlib
 
     /**
      * Check whether the supplied value is an Array or not.
@@ -165,6 +163,3 @@ this.load = function load(x) {
     x.isRegExp = function isRegExp(val) {
         return val === Object(val);
     };
-
-
-};

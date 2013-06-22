@@ -1,7 +1,5 @@
 
-//Array functions in xlib
-this.load = function load(x) {
-    "use strict";
+    //Array functions in xlib
 
     /**
      * Retrieve all the names of the object's properties.
@@ -175,8 +173,3 @@ this.load = function load(x) {
      *
      */
 
-
-
-
-
-};

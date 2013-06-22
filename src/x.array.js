@@ -1,10 +1,8 @@
 
-//Array functions in xlib
-this.load = function load(x) {
-    "use strict";
+    //Array functions in xlib
 
     /**
-     * Returns a new array containing range of numbers based on specified parameters.
+     * Generates an array containing range of numbers based on specified parameters.
      *
      * @function range(start, stop, [steps])
      * @params {number} start The start value in range.
@@ -216,7 +214,7 @@ this.load = function load(x) {
     };
 
 
-   /**
+    /**
      * Uses a binary search to determine the index at which the value should
      * be inserted into the list in order to maintain the list's sorted order
      *
@@ -323,7 +321,7 @@ this.load = function load(x) {
      *
      * @function x.compact(array)
      * @params {Array} array The array1 value in x.compact.
-//   * @returns {number} If the array has all the falsy values it remove the falsy
+    //   * @returns {number} If the array has all the falsy values it remove the falsy
      * values return only the number of an array
      * If array having all falsy value it return the empty array.
      *
@@ -344,9 +342,9 @@ this.load = function load(x) {
             }
         }
         return retArr;
-   };
+    };
 
-   /**
+    /**
      * Returns a copy of the array with all dublicates value are removed.
      * The value which are repeat in array are removed.
      *
@@ -443,4 +441,3 @@ this.load = function load(x) {
         }
     };
 
-};

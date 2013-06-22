@@ -12,11 +12,13 @@
 'use strict';
 
 var src = [
+        'src/x.begin.js',
         'src/x.js',
         'src/x.is.js',
         'src/x.string.js',
         'src/x.array.js',
-        'src/x.objects.js'
+        'src/x.objects.js',
+        'src/x.end.js'
     ];
 
 module.exports = function (grunt) {

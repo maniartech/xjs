@@ -1,7 +1,5 @@
 
-//Recognition functions in xlib
-this.load = function load(x, undefined) {
-    "use strict";
+    //Recognition functions in xlib
 
     x.trimL = function trimL(str) {
 
@@ -40,7 +38,6 @@ this.load = function load(x, undefined) {
     };
 
     //http://stackoverflow.com/questions/494035/how-do-you-pass-a-variable-to-a-regular-expression-javascript
-    replaceAll: function replaceAll(str, strReplace, strWith) {
+    x.replaceAll = function replaceAll(str, strReplace, strWith) {
 
     }
-};

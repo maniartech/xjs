@@ -1,12 +1,20 @@
 
-(function (root, undefined) {
-    "use strict";
-
-    var FORMAT_EXP2 = /\{\{\s*([^\s}]+)\s*\}\}/g;
-
+    var FORMAT_EXP = /(\$\d+)|(\$\w+)/g,
+        x;
 
     //Define the main x function
-    var x = function x(str, context) {
+    x = function x(str, context) {
+        var key;
+
+        if (context === undefined) {
+            return str;
+        }
+
+        if (typeof context === "object") {
+            for(key in context) {
+
+            }
+        }
 
         if (arguments.length < 2) {
             return str;
@@ -16,12 +24,4 @@
 
     };
 
-    // x.plugins.attach = function attach(obj) {
-    //     for(var key in obj) {
-    //         if (obj[key].is)
-    //     }
-    // };
-
-    root.x = x;
-
-})(this);
+    x.version = "1.0.0";
