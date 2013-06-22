@@ -19,7 +19,7 @@
         var result = [],
             i;
 
-        step = step || (start < stop) ? 1 : -1;
+        step = step ? step : (start < stop) ? 1 : -1
 
         for(i = start; step > 0 ? i < stop : i > stop; i += step) {
             result.push(i);
