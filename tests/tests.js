@@ -37,11 +37,11 @@ test("Function range(...) should generate proper array ranges", function() {
     eq(arr.length, 2);
     eq(arr.join(","), "5,3");
 
-    arr = x.range(1,5);
+    arr = x.range(1, 5);
     eq(arr.length, 4);
     eq(arr.join(","), "1,2,3,4");
 
-    arr = x.range(0,0);
+    arr = x.range(0, 0);
     eq(arr.length, 0);
     eq(arr.join(","), "");
 
@@ -111,3 +111,298 @@ test("Function first(...) should return initial values", function(){
     eq(ret.length, 0);
 
 });
+
+test("Function last(...) should return last values", function(){
+    var ret;
+
+    ret = x.last([1, 2, 3, 4, 5]);
+    eq(ret, 5);
+
+    ret = x.last([1, 2, 3, 4, 5], 5);
+    eq(ret instanceof Array, true);
+    eq(ret.length, 5);
+    eq(ret[4], 5);
+
+    ret = x.last([5, 8, 9, 10, 0], 0);
+     eq(ret instanceof Array, true);
+    eq(ret.length, 0);
+
+    ret = x.last([-5, -6, -7, -8], -8);
+    eq(ret instanceof Array, true);
+    eq(ret.length, 0);
+
+    ret = x.last([5]);
+    eq(ret, 5);
+
+    ret = x.last([-8]);
+    eq(ret, -8);
+
+
+});
+
+test("Function intersection(...) should return the dublicates values",function(){
+
+    var ret;
+
+
+    ret = x.intersection([1, 2, 3, 4, 5, 2, 3, 4, 5, 6],2, 3, 4, 5);
+    eq(ret, 3);
+    eq(ret.length, 0);
+    eq(ret.join(","), "1, 6");
+});
+
+
+test("Function indexOf(...) should return position of the values ",function(){
+
+    var ret;
+
+    ret = x.indexOf([1, 2, 3, 4, 5, 6, 7, 8], 6);
+    eq(ret, 5);
+
+    ret = x.indexOf([4, 5, 6, 7],4);
+    eq(ret, 0);
+
+    ret = x.indexOf([-1, -2, -3, -4, -5], -3);
+    eq(ret, 2);
+
+    ret = x.indexOf([0],2);
+    eq(ret, -1);
+
+    ret = x.indexOf([5,1], 1);
+    eq(ret, 1);
+
+    ret = x.indexOf([0], 0);
+    eq(ret, 0);
+
+    ret = x.indexOf([5, 4, 2, 3, 1], 6);
+    eq(ret, -1);
+
+    ret = x.indexOf([5, 4, 3, 1], 1);
+    eq(ret, 3);
+
+    ret = x.indexOf([]);
+    eq(ret, -1);
+
+    ret = x.indexOf([1, 2, 3, 4, 5, 6, 8], 8);
+    eq(ret, 6);
+
+});
+
+test("Function exists(...) should return the statement of the values ture or false ",function(){
+
+    var ret;
+
+    ret = x.exists([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],10);
+    eq(ret, true);
+
+    ret = x.exists([1, 2, 3, 4, 5],8);
+    eq(ret, false);
+
+    ret = x.exists([4, 3, 2, 7, 8, 9], 9);
+    eq(ret, true);
+
+    ret = x.exists([-9, -10, -11], 11);
+    eq(ret, false);
+
+    ret = x.exists([-8, -10, -11, -3, -4, -5], -5);
+    eq(ret,true);
+
+    ret = x.exists([]);
+    eq(ret, false);
+
+    ret = x.exists([0], 0);
+    eq(ret, true);
+
+    ret = x.exists([0, 1, 2], 4);
+    eq(ret, false);
+
+    ret = x.exists([1], 1);
+    eq(ret, true);
+
+    ret = x.exists([-5], 5);
+    eq(ret, false);
+});
+
+test("Function lastIndexOf(...) should return position of the last occurrence of value ",function(){
+
+    var ret;
+
+    ret = x.lastIndexOf([1, 2, 3, 4, 5, 6, 7, 8, 5, 3, 2, 1 ], 1);
+    eq(ret,11);
+
+    ret = x.lastIndexOf([1, 2,5, 3, 2, 1 ], -1);
+    eq(ret, -1);
+
+    ret = x.lastIndexOf([1, 2, 7, 8, 5, 3, 2, 1, 7, 8, 2 ], 8);
+    eq(ret, 9);
+
+    ret = x.lastIndexOf([-1, -2, -3, -4, -5, -6, -7, -8, -5, -3, -2, -1 ], 5);
+    eq(ret, -1);
+
+    ret = x.lastIndexOf([-1, -2, -3, -6, -7, -8, -5, -3, -2, -1 ], -3);
+    eq(ret, 7);
+
+    ret = x.lastIndexOf([-1, -2,-7, -8, -5, -3, -2, -1 ], -8);
+    eq(ret, 3);
+
+    ret = x.lastIndexOf([-5], -6);
+    eq(ret, -1);
+
+    ret = x.lastIndexOf([-1 ], -1);
+    eq(ret, 0);
+
+    ret = x.lastIndexOf([-1, -2, -2, -1, -4 ], -2);
+    eq(ret, 2);
+
+    ret = x.lastIndexOf([-1, -1, -1, -1, -1 ], -1);
+    eq(ret, 4);
+});
+
+
+test("Function sortedIndex(...) should search the index at which the value should be inserted ",
+    function(){
+
+    var ret;
+
+    ret = x.sortedIndex([1, 2, 3, 4, 5, 6],2.5);
+    eq(ret, 2);
+
+    ret = x.sortedIndex([10, 20, 30, 40, 50, 60, 70, 80, 90, 100],55);
+    eq(ret, 5);
+
+    ret = x.sortedIndex([-1, -5, -8, -10, -11, -12], 9);
+    eq(ret, 6);
+
+    ret = x.sortedIndex([100, 200, 300, 400, 500, 600], 550);
+    eq(ret, 5);
+
+    ret = x.sortedIndex([1, 9], 10);
+    eq(ret, 2);
+
+    ret = x.sortedIndex([], 0);
+    eq(ret, 0);
+
+    ret = x.sortedIndex([-1, 0], 0.5);
+    eq(ret, 2);
+
+    ret = x.sortedIndex([-1], 1.5);
+    eq(ret, 1);
+
+    ret = x.sortedIndex([], 10,11);
+    eq(ret, 0, 1);
+
+    ret = x.sortedIndex([-11, 12], 11.5);
+    eq(ret, 1);
+});
+
+test("Function merge(...) should convert the array into object and merge the values",
+    function(){
+
+    var ret;
+
+    ret = x.merge(['Sharukh', 'Aamir', 'Salman'], [30, 40, 50]);
+    eq(x.keys(ret).join(","), "Sharukh,Aamir,Salman");
+    eq(ret.Sharukh, 30);
+    eq(ret.Aamir, 40);
+    eq(ret.Salman,50);
+
+    ret = x.merge(['maruti', 'honda', 'hyundai'], [50000,10000,200000]);
+    eq(x.keys(ret).join(","), "maruti,honda,hyundai");
+    eq(ret.maruti, 50000);
+    eq(ret.honda, 10000);
+    eq(ret.hyundai, 200000);
+
+    ret = x.merge(['abc', 'pqr', 'xyz'], [500, 500, 500]);
+    eq(x.keys(ret).join(","), "abc,pqr,xyz");
+    eq(ret.abc, 500);
+    eq(ret.pqr, 500);
+    eq(ret.xyz,500);
+});
+
+test("Function initial(...) should remove the last values", function(){
+
+    var ret;
+
+    ret = x.initial([1, 2, 3, 4, 5], 1);
+    eq(ret.length, 4);
+    eq(ret.join(","), "1,2,3,4");
+
+    ret = x.initial([-1, -2, -3, -4, -5], -1);
+    eq(ret.length, 5);
+    eq(ret.join(","), "-1,-2,-3,-4,-5");
+
+    ret = x.initial([10, 20, 30, 40, 50], 2);
+    eq(ret.length, 3);
+    eq(ret.join(","), "10,20,30");
+
+    ret = x.initial([0], 0);
+    eq(ret.length, 1);
+    eq(ret.join(","), "0");
+
+    ret = x.initial([5, 6, 7, 8, 9, 10, 11, 12, 13], 0);
+    eq(ret.length, 9);
+    eq(ret.join(","), "5,6,7,8,9,10,11,12,13");
+
+    ret = x.initial([], 0);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+
+
+});
+
+test("Function rest(...) should remove the first value and returns the value",function(){
+
+    var ret;
+
+    ret = x.rest([1, 2, 3, 4, 5], 1);
+    eq(ret.length,4);
+    eq(ret.join(","), "2,3,4,5");
+
+    ret = x.rest([10, 20, 30, 40, 50, 60, 70], 3);
+    eq(ret.length, 4);
+    eq(ret.join(","), "40,50,60,70");
+
+    ret = x.rest([0], 1);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+    ret = x.rest([-10, -20, -30, -40, -50, -60, -70], 5);
+    eq(ret.length, 2);
+    eq(ret.join(","), "-60,-70");
+
+    ret = x.rest([], 0);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+});
+
+test("Function compact(...) should removes the falsy values", function(){
+
+    var ret;
+
+    ret = x.compact([0,1,false,"",5]);
+    eq(ret.length, 2);
+    eq(ret.join(","),"1,5");
+
+    ret = x.compact([5,"abc",false,"",5,7,9,0,"",true]);
+    eq(ret.length, 6);
+    eq(ret.join(","),"5,abc,5,7,9,true");
+
+    ret = x.compact([""]);
+    eq(ret.length, 0);
+    eq(ret.join(","),"");
+
+    ret = x.compact([0, 0, false, ""]);
+    eq(ret.length, 0);
+    eq(ret.join(","),"");
+
+    ret = x.compact([10,20,1,3,125,154]);
+    eq(ret.length, 6);
+    eq(ret.join(","),"10,20,1,3,125,154");
+
+    ret = x.compact(["",0,true,3,15,15]);
+    eq(ret.length, 4);
+    eq(ret.join(","),"true,3,15,15");
+});
+
