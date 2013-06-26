@@ -397,8 +397,8 @@
      *
      * @version 1.0
      */
-    x.zip = function zip (array1, array2,array3) {
-        var result = {},
+    x.zip = function zip (array1, array2, array3) {
+        var result = [],
             i,
             iLen = array1.length;
 
@@ -406,8 +406,8 @@
             throw new Error("Both array must have same length");
         }
 
-        for (i = 0; i < iLen; i += 1) {
-            result [array1[i]] = [array2[i],array3[i]];
+        for (i = 0; i < iLen; i++) {
+            result.push([array1[i],array2[i],array3[i]]);
         }
         return result;
     };

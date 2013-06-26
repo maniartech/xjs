@@ -383,11 +383,11 @@ test("Function compact(...) should removes the falsy values", function(){
 
     ret = x.compact([0,1,false,"",5]);
     eq(ret.length, 2);
-    eq(ret.join(","),"1,5");
+    eq(ret.join(","), "1,5");
 
     ret = x.compact([5,"abc",false,"",5,7,9,0,"",true]);
     eq(ret.length, 6);
-    eq(ret.join(","),"5,abc,5,7,9,true");
+    eq(ret.join(","), "5,abc,5,7,9,true");
 
     ret = x.compact([""]);
     eq(ret.length, 0);
@@ -395,14 +395,79 @@ test("Function compact(...) should removes the falsy values", function(){
 
     ret = x.compact([0, 0, false, ""]);
     eq(ret.length, 0);
-    eq(ret.join(","),"");
+    eq(ret.join(","), "");
 
     ret = x.compact([10,20,1,3,125,154]);
     eq(ret.length, 6);
-    eq(ret.join(","),"10,20,1,3,125,154");
+    eq(ret.join(","), "10,20,1,3,125,154");
 
     ret = x.compact(["",0,true,3,15,15]);
     eq(ret.length, 4);
-    eq(ret.join(","),"true,3,15,15");
+    eq(ret.join(","), "true,3,15,15");
 });
 
+test("Function without(...) should removes dublicates values", function(){
+
+    var ret;
+
+    ret = x.without([1, 2, 1, 1, 3, 2, 1, 4, 5, 6, 7], 1);
+    eq(ret.length, 8);
+    eq(ret.join(","), "2,1,3,2,4,5,6,7");
+
+    ret = x.without([-5, -6, -7, -8, -8,-9, -7,-6],-9,-6,-8);
+    eq(ret.length, 4);
+    eq(ret.join(","), "-5,-7,-8,-7");
+
+    ret = x.without([0], 0);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+    ret = x.without([]);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+    ret = x.without([-1], 1);
+    eq(ret.length, 1);
+    eq(ret.join(","), "-1");
+
+});
+
+test("Function zip(...) should merge the values having two parameter", function(){
+
+    var ret;
+
+    ret = x.zip(['moe','abc','pqr'],[1,2,3],[true,false,false]);
+    eq(ret.moe);
+    eq(ret.abc);
+    eq(ret.pqr);
+    eq(ret.join(","), "moe,1,true,abc,2,false,pqr,3,false");
+
+    ret = x.zip(['Aamir','Noman','talha'],[50000,2000,300],[true,false,true]);
+    eq(ret.Aamir);
+    eq(ret.Noman);
+    eq(ret.talha);
+    eq(ret.join(","), "Aamir,50000,true,Noman,2000,false,talha,300,true");
+
+    ret = x.zip(['Car', 'Bike'],[500000,60000],[true,false]);
+    eq(ret.Car);
+    eq(ret.Bike);
+    eq(ret.join(","), "Car,500000,true,Bike,60000,false");
+});
+
+//test("Function flatten(...) should flatterns a nested Array", function(){
+
+    var ret;
+
+    ret = x.flatten([[[1, 2], [3, 4], [5, [6, [7, 8]]]]]);
+    eq(ret.length, 8);
+
+//});
+
+test("function keys(...) should returns all the names of the object's properties",function(){
+
+    var obj;
+
+    obj = x.keys({two: 2, three: 3, four:4});
+    eq(obj);
+
+});
