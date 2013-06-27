@@ -144,11 +144,25 @@ test("Function intersection(...) should return the dublicates values",function()
 
     var ret;
 
+    ret = x.intersection([1, 2, 3, 4, 5, 6],[2, 3, 4, 5]);
+    eq(ret.length, 4);
+    eq(ret.join(","), "2,3,4,5");
 
-    ret = x.intersection([1, 2, 3, 4, 5, 2, 3, 4, 5, 6],2, 3, 4, 5);
-    eq(ret, 3);
+    ret = x.intersection([-1, -4, -5, -6],[-1]);
+    eq(ret.length, 1);
+    eq(ret.join(","), "-1");
+
+    ret = x.intersection([2],[2]);
+    eq(ret.length, 1);
+    eq(ret.join(","), "2");
+
+    ret = x.intersection([1, 6, 7, 8, 9, 10],[1, 6, 7, 8, 9, 10]);
+    eq(ret.length, 6);
+    eq(ret.join(","), "1,6,7,8,9,10");
+
+    ret = x.intersection([],[]);
     eq(ret.length, 0);
-    eq(ret.join(","), "1, 6");
+    eq(ret.join(","), "");
 });
 
 
@@ -454,20 +468,112 @@ test("Function zip(...) should merge the values having two parameter", function(
     eq(ret.join(","), "Car,500000,true,Bike,60000,false");
 });
 
-//test("Function flatten(...) should flatterns a nested Array", function(){
+test("Function flatten(...) should flatterns a nested Array", function(){
 
     var ret;
 
     ret = x.flatten([[[1, 2], [3, 4], [5, [6, [7, 8]]]]]);
     eq(ret.length, 8);
+    eq(ret.join(","), "1,2,3,4,5,6,7,8");
 
-//});
+    ret = x.flatten([[[5], [3], [4], [5], [6], [7], [8]]]);
+    eq(ret.length, 7);
+    eq(ret.join(","), "5,3,4,5,6,7,8");
+
+    ret = x.flatten([[0],[],[],[],[]]);
+    eq(ret.length, 1);
+    eq(ret.join(","), "0");
+
+    ret = x.flatten([[[],[[[]]]]]);
+    eq(ret.length, 0);
+    eq(ret.join(","), "");
+
+    ret = x.flatten([[1],[],[2,3,4]]);
+    eq(ret.length, 4);
+    eq(ret.join(","), "1,2,3,4");
+});
 
 test("function keys(...) should returns all the names of the object's properties",function(){
 
-    var obj;
+    var arr;
 
-    obj = x.keys({two: 2, three: 3, four:4});
-    eq(obj);
+    arr = x.keys({two: 2, three: 3, four:4});
+    eq(arr.join(","), "two,three,four");
+    eq(arr.length,3);
+
+    arr = x.keys({five: 5, six: 6, seven:7, eight:8});
+    eq(arr.join(","), "five,six,seven,eight");
+    eq(arr.length,4);
+
+    arr = x.keys({nine: 9});
+    eq(arr.join(","), "nine");
+    eq(arr.length,1);
+
+    arr = x.keys({});
+    eq(arr.join(","), "");
+    eq(arr.length,0);
+
+    arr = x.keys({one: 1, two: 2});
+    eq(arr.join(","), "one,two");
+    eq(arr.length,2);
+});
+
+test("function values(...) should returns all the values of the object's properties",function(){
+
+    var arr;
+
+    arr = x.values({two: 2, three: 3, four:4});
+    eq(arr.join(","), "2,3,4");
+    eq(arr.length,3);
+
+    arr = x.values({five: 5, nine: 9, seven:7, eight: 8});
+    eq(arr.join(","), "5,9,7,8");
+    eq(arr.length,4);
+
+    arr = x.values({one: 1});
+    eq(arr.join(","), "1");
+    eq(arr.length,1);
+
+    arr = x.values({});
+    eq(arr.join(","), "");
+    eq(arr.length,0);
+
+    arr = x.values({1:1});
+    eq(arr.join(","), "1");
+    eq(arr.length,1);
 
 });
+
+test("function pairs(...) should returns all the pairs of th eobject",function(){
+
+    var arr;
+
+    arr = x.pairs({two: 2, three: 3, four:4});
+    eq(arr.join(","), "two,2,three,3,four,4");
+    eq(arr.length,3);
+
+    arr = x.pairs({five: 5, nine: 9, seven:7, eight: 8});
+    eq(arr.join(","), "five,5,nine,9,seven,7,eight,8");
+    eq(arr.length,4);
+
+    arr = x.pairs({one: 1,three: 3});
+    eq(arr.join(","), "one,1,three,3");
+    eq(arr.length,2);
+
+    arr = x.pairs({});
+    eq(arr.join(","), "");
+    eq(arr.length,0);
+
+    arr = x.pairs({1:1});
+    eq(arr.join(","), "1,1");
+    eq(arr.length,1);
+
+});
+
+//test("Function invert(...) should returns the object keys",function(){
+
+  //  var arr;
+
+    //arr = x.invert({Cat: "Cats", Dog: "Dogs", Bird: "birds"});
+    //eq(arr.);
+//});

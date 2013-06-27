@@ -23,7 +23,7 @@ var firArray   = [1,2,3,4,5,6],
     compArray  = [0, 1, false, 2, '', 3],
     witArray   = [1, 2, 1, 0, 3, 1, 4],
     zpArray    = ['moe', 'larry', 'curly'];
-    flatArray = [[1, 2], [3, 4], [5, [6, [7, 8]]]], retArray = [];
+    flatArray = [[1, 2], [3, 4], [5, [6, [7, 8]]]];
 
 
 // console.log(x.range(0, 5, 2));
@@ -40,8 +40,7 @@ var firArray   = [1,2,3,4,5,6],
 // console.log(x.compact(compArray));
 // console.log(x.without(witArray, 1, 0));
 // console.log(x.zip(zpArray, [30,40,50], [true,false,false]));
-// x.flatten(flatArray,retArray);
-// console.log(retArray);
+// console.log(flatten(flatArray));
 
 
 //   x.objects Function   //

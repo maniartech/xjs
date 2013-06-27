@@ -86,7 +86,7 @@
      *
      * @version 1.0
      */
-     x.invert = function invert(obj) {
+    x.invert = function invert(obj) {
         var retObj = {},
             key;
 
