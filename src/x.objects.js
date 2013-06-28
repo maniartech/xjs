@@ -162,7 +162,19 @@
         return retArr.sort();
     };
 
-
+    /**
+     * Returns the shallow-copied of the object.
+     *
+     * @function keys(obj)
+     * @params {object} obj An object for which all the clone need to be retrived.
+     * @returns {Array} Returns a string array of object fields.
+     *
+     * @example
+     * var cloneObj =({name:'moe'}) ;
+     * console.log(x.clone(cloneObj));  // Print {name:'moe'}
+     *
+     * @version 1.0
+     */
     x.clone = function clone(obj) {
         if (Object(obj)){
             return obj;

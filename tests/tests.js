@@ -1,7 +1,7 @@
 var eq = window.strictEqual;
 var neq = window.notStrictEqual;
 
-module("X Core");
+module("X Core"); //////////////////////////////////////////////////////////
 
 test("core to be okay", function () {
     neq(x, undefined);
@@ -9,7 +9,7 @@ test("core to be okay", function () {
     eq(x.version, "1.0.0");
 });
 
-module("Array functions");
+module("Array functions"); /////////////////////////////////////////////////
 
 test("Function range(...) should generate proper array ranges", function() {
     var arr;
@@ -493,6 +493,9 @@ test("Function flatten(...) should flatterns a nested Array", function(){
     eq(ret.join(","), "1,2,3,4");
 });
 
+module("Object functions"); /////////////////////////////////////////////////
+
+
 test("function keys(...) should returns all the names of the object's properties",function(){
 
     var arr;
@@ -570,10 +573,192 @@ test("function pairs(...) should returns all the pairs of th eobject",function()
 
 });
 
-//test("Function invert(...) should returns the object keys",function(){
+test("Function invert(...) should returns the object keys",function(){
 
-  //  var arr;
+    var obj;
 
-    //arr = x.invert({Cat: "Cats", Dog: "Dogs", Bird: "birds"});
-    //eq(arr.);
-//});
+    obj = x.invert({Cat: "Cats", Dog: "Dogs", Bird: "birds"});
+    eq(x.keys(obj).join(","), "Cats,Dogs,birds");
+    eq(x.values(obj).join(","), "Cat,Dog,Bird");
+    eq(x.pairs(obj).join(","), "Cats,Cat,Dogs,Dog,birds,Bird");
+
+    obj = x.invert({Talha: "talha", Junaid: "junaid", Abdul: "abdul"});
+    eq(x.keys(obj).join(","), "talha,junaid,abdul");
+    eq(x.values(obj).join(","), "Talha,Junaid,Abdul");
+    eq(x.pairs(obj).join(","), "talha,Talha,junaid,Junaid,abdul,Abdul");
+
+    obj = x.invert({Car: "Maruti", Bike: "Bajaj", Scooty: "Honda"});
+    eq(x.keys(obj).join(","), "Maruti,Bajaj,Honda");
+    eq(x.values(obj).join(","), "Car,Bike,Scooty");
+    eq(x.pairs(obj).join(","), "Maruti,Car,Bajaj,Bike,Honda,Scooty");
+
+    obj = x.invert({});
+    eq(x.keys(obj).join(","), "");
+    eq(x.values(obj).join(","), "");
+    eq(x.pairs(obj).join(","), "");
+
+     obj = x.invert({1: "One"});
+    eq(x.keys(obj).join(","), "One");
+    eq(x.values(obj).join(","), "1");
+    eq(x.pairs(obj).join(","), "One,1");
+});
+
+test("Function functions(...) should returns list of name of method object in sorted format",
+    function(){
+
+    var arr;
+
+    arr = x.functions({init: function() {},tpString:function(){return "Function Object";},
+          a: function() {},
+          b: function () {}});
+    eq(arr.length, 4);
+    eq(arr.join(","), "a,b,init,tpString");
+
+    arr = x.functions({IT: function() {},tpString:function(){return "Function Object";},
+          a: function () {}});
+    eq(arr.length, 3);
+    eq(arr.join(","), "IT,a,tpString");
+
+    arr = x.functions({name: function() {},Address:function(){},
+          Age: function () {}});
+    eq(arr.length, 3);
+    eq(arr.join(","), "Address,Age,name");
+
+    arr = x.functions({});
+    eq(arr.length, 0);
+    eq(arr.join(","), "");
+
+    arr = x.functions({1: function() {}});
+    eq(arr.length, 1);
+    eq(arr.join(","), "1");
+
+    arr = x.functions({"": function() {}});
+    eq(arr.length, 1);
+    eq(arr.join(","), "");
+});
+
+test("Function fields(...) should returns list of name of object",function(){
+
+    var arr;
+
+    arr = x.fields({name:"test", age: "verify"});
+    eq(arr.length, 2);
+    eq(arr.join(","),"age,name");
+
+    arr = x.fields({IT:"Information Technologies", Class: "13th", College:"Rmc"});
+    eq(arr.length, 3);
+    eq(arr.join(","), "Class,College,IT");
+
+    arr = x.fields({});
+    eq(arr.length, 0);
+    eq(arr.join(","), "");
+
+    arr = x.fields({1: "1", 2:"2"});
+    eq(arr.length, 2);
+    eq(arr.join(","), "1,2");
+
+    arr = x.fields({1:"", 2:""});
+    eq(arr.length, 2);
+    eq(arr.join(","), "1,2");
+
+    arr = x.fields({"" : "one"});
+    eq(arr.length, 1);
+    eq(arr.join(","), "");
+});
+
+test("Function clone(...) should returns the shallow-copied of the object",function(){
+
+    var obj;
+
+    obj = x.clone({name:'moe', lastName: 'abc'});
+    eq(x.keys(obj).join(","), "name,lastName");
+    eq(x.values(obj).join(","), "moe,abc");
+    eq(x.pairs(obj).join(","), "name,moe,lastName,abc");
+
+    obj = x.clone({Address:'mira rd', phone: '9768'});
+    eq(x.keys(obj).join(","), "Address,phone");
+    eq(x.values(obj).join(","), "mira rd,9768");
+    eq(x.pairs(obj).join(","), "Address,mira rd,phone,9768");
+
+    obj = x.clone({});
+    eq(x.keys(obj).join(","), "");
+    eq(x.values(obj).join(","), "");
+    eq(x.pairs(obj).join(","), "");
+
+    obj = x.clone({1:"1"});
+    eq(x.keys(obj).join(","), "1");
+    eq(x.values(obj).join(","), "1");
+    eq(x.pairs(obj).join(","), "1,1");
+});
+
+module("Is functions"); /////////////////////////////////////////////////
+
+test("Function isArray(...) should check the values ia an array or not",function(){
+
+    var bool;
+
+    bool = x.isArray([1, 2, 3]);
+    eq(bool, true);
+
+    bool = x.isArray({abc: "pqr"});
+    eq(bool, false);
+
+    bool = x.isArray(["abc"]);
+    eq(bool, true);
+
+    bool = x.isArray([]);
+    eq(bool, true);
+
+    bool = x.isArray({});
+    eq(bool, false);
+
+    bool = x.isArray("abc");
+    eq(bool, false);
+
+    bool = x.isArray([1, 2, 3, 4, 5, 6, "abc", "pqr"]);
+    eq(bool, true);
+
+    bool = x.isArray(1, 2, 3, 4, 5, 6, "abc", "pqr");
+    eq(bool, false);
+
+    bool = x.isArray();
+    eq(bool, false);
+
+    bool = x.isArray([""]);
+    eq(bool, true);
+});
+
+test("Function isObject(...) should check the values ia an Object or not",function(){
+
+    var bool;
+
+    bool = x.isObject({abc: "pqr"});
+    eq(bool, true);
+
+    bool = x.isObject(1, 2, 3);
+    eq(bool, false);
+
+    bool = x.isObject({abc:"moe", pqr: "xyz"});
+    eq(bool, true);
+
+    bool = x.isObject([]);
+    eq(bool, true);
+
+    bool = x.isObject({});
+    eq(bool, true);
+
+    bool = x.isObject("abc");
+    eq(bool, false);
+
+    bool = x.isObject({name:"talha", lastName:"Maniar"});
+    eq(bool, true);
+
+    bool = x.isObject({1:1});
+    eq(bool, true);
+
+    bool = x.isArray();
+    eq(bool, false);
+
+    bool = x.isArray([""]);
+    eq(bool, true);
+});
