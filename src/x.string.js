@@ -16,7 +16,7 @@
      * @return {[type]}     [description]
      * @references
      * - Faster JavaScript Trims: http://blog.stevenlevithan.com/archives/faster-trim-javascript
-     */
+     **/
     x.trim = function(str) {
         if (str.trim) {
             return str.trim();
@@ -32,7 +32,7 @@
      * console.log(chars); //Prints ['h','e','l','l','o']
      *
      * @version 1.0
-     */
+     **/
     x.toCharArray = function(str) {
         return str.split('');
     };

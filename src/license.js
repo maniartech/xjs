@@ -16,5 +16,5 @@
  *      http://www.maniartech.com
  *      Twitter: @maniartech
  *
- */
+ **/
 

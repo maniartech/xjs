@@ -15,7 +15,8 @@
      * console.log(x.isArray(123)); //Prints false
      *
      * @version 1.0
-     */
+     **/
+
     x.isArray = function isArray(val) {
         return val instanceof Array;
     };
@@ -33,7 +34,7 @@
      * console.log(x.isObject([1,2,3])); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isObject = function isObject(val) {
         return val === Object(val);
     };
@@ -51,7 +52,7 @@
      * console.log(x.isullOrUndef("moe")); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isNullOrUndef = function isNullOrUndef(val) {
         return val === null || val === undefined;
     };
@@ -69,7 +70,7 @@
      * console.log(x.isullOrUndef(1,2,3)); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isString = function isString(val) {
       return val === String(val);
     };
@@ -87,7 +88,7 @@
      * console.log(x.isullOrUndef("moe")); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isNumber = function isNumber(val) {
         return val === Number(val);
     };
@@ -105,7 +106,7 @@
      * console.log(x.isBoolean(null)); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isBoolean = function isBoolean(val) {
         return val === true || val === false;
     };
@@ -123,7 +124,7 @@
      * console.log(x.isDate(1,2,3)); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isDate = function isDate(val) {
         return val instanceof Date;
     };
@@ -141,7 +142,7 @@
      * console.log(x.isRegExp("moe")); //Prints false
      *
      * @version 1.0
-     */
+     **/
     x.isRegExp = function isRegExp(val) {
         return val instanceof RegExp;
     };

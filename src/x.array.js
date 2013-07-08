@@ -14,7 +14,7 @@
      * console.log(range);  // Prints [1, 3, 5, 7, 9]
      *
      * @version 1.0
-     */
+     **/
     x.range = function range(start, stop, step) {
         var result = [],
             i;
@@ -45,7 +45,7 @@
      * console.log(x.first(firArray, 2));  // Prints [1, 2]
      *
      * @version 1.0
-     */
+     **/
     x.first = function first(array, n) {
 
         if(n === undefined) {
@@ -75,7 +75,7 @@
      * console.log(x.last(lasArray, 2));  // Prints [5,6]
      *
      * @version 1.0
-     */
+     **/
     x.last = function last(array, n) {
 
         if(n === undefined) {
@@ -104,7 +104,7 @@
      * console.log(x.intersection(intrArray1, intrArray2));  // Prints [3,4,5]
      *
      * @version 1.0
-     */
+     **/
     x.intersection = function intersection(array1, array2) {
         var retArray = [],
             i,j,
@@ -137,7 +137,7 @@
      * console.log(x.indexOf(indxArray, 3));  // Prints True
      *
      * @version 1.0
-     */
+     **/
     x.indexOf = function indexOf(array, val) {
         var i,
             iLen = array.length;
@@ -170,7 +170,7 @@
      * console.log(x.indexValue(extArray, 3));  // Prints 2
      *
      * @version 1.0
-     */
+     **/
     x.exists = function exists(array, val) {
         var i,
             iLen = array.length;
@@ -201,7 +201,7 @@
      * console.log(x.lastIndexOf(lstInArray, 3));  // Prints 7
      *
      * @version 1.0
-     */
+     **/
     x.lastIndexOf = function lastIndexOf(array, val) {
         var retArr = [],
             i,
@@ -232,7 +232,7 @@
      * console.log(x.sortedIndex(sorInArray, 35));  // Prints 3
      *
      * @version 1.0
-     */
+     **/
     x.sortedIndex = function sortedIndex (array, val) {
         var i,
             iLen = array.length;
@@ -261,7 +261,7 @@
      * console.log(x.merge(mergArray, 30, 40, 50));  //Prints {'moe': 30,'larry': 40,'curly': 50}
      *
      * @version 1.0
-     */
+     **/
     x.merge = function merge(array1, array2) {
         var result = {},
             i,
@@ -292,7 +292,7 @@
      * console.log(x.initial(initArray, 1));  //Prints [5,4,3,2]
      *
      * @version 1.0
-     */
+     **/
     x.initial = function(array, n, val) {
         return array.slice.call(array, 0, array.length - ((n === null) || val ? 1 : n));
     };
@@ -312,7 +312,7 @@
      * console.log(x.rest(rstArray, 1));  //Prints [4,3,2,1]
      *
      * @version 1.0
-     */
+     **/
     x.rest = function(array, n, val) {
         return array.slice.call(array ,n === null || val ? 1 : n);
     };
@@ -332,7 +332,7 @@
      * console.log(x.compact(x));  //Prints [1,2,3]
      *
      * @version 1.0
-     */
+     **/
     x.compact = function compact (array) {
         var retArr=[],
             i,
@@ -363,7 +363,7 @@
      * console.log(x.without(witArray, 1, 0));  //Prints [2,3,4]
      *
      * @version 1.0
-     */
+     **/
     x.without =function without(array,number) {
         var i,j,
             iLen = array.length;
@@ -396,7 +396,7 @@
      * //Prints {'moe': 30, true ,'larry': 40, false ,'curly': 50, false}
      *
      * @version 1.0
-     */
+     **/
     x.zip = function zip (array1, array2, array3) {
         var result = [],
             i,
@@ -428,7 +428,7 @@
      * console.log(b); // Prints [1,2,3,4,5,6,7,8]
      *
      * @version 1.0
-     */
+     **/
     x.flatten = function flatten(arr, arrOut) {
         if(typeof arrOut === "undefined") {
             var arrOut = [];

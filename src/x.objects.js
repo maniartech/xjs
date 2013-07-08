@@ -13,7 +13,7 @@
      * console.log(x.keys(keyObject));  // Prints [one, Two, Three]
      *
      * @version 1.0
-     */
+     **/
     x.keys = function keys(obj) {
         var retArr = [],
             key;
@@ -36,7 +36,7 @@
      * console.log(x.values(valObject));  // Prints [1, 2, 3]
      *
      * @version 1.0
-     */
+     **/
     x.values = function values(obj) {
         var retArr = [],
             key;
@@ -59,7 +59,7 @@
      * console.log(x.pairs(pairObject));  // Prints [["one", 1], ["two", 2], ["three", 3]]
      *
      * @version 1.0
-     */
+     **/
 
     x.pairs = function pairs(obj) {
         var retArr = [],
@@ -85,7 +85,7 @@
      * // Prints {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
      *
      * @version 1.0
-     */
+     **/
     x.invert = function invert(obj) {
         var retObj = {},
             key;
@@ -116,7 +116,7 @@
      * // Prints {'a', 'b', 'init', 'tpString'}
      *
      * @version 1.0
-     */
+     **/
     x.functions = function functions(obj) {
         var retArr = [],
             key;
@@ -149,7 +149,7 @@
      * // Prints {'name'}
      *
      * @version 1.0
-     */
+     **/
     x.fields = function fields(obj) {
         var retArr = [],
             key;
@@ -174,7 +174,7 @@
      * console.log(x.clone(cloneObj));  // Print {name:'moe'}
      *
      * @version 1.0
-     */
+     **/
     x.clone = function clone(obj) {
         if (Object(obj)) {
             return obj;
@@ -183,5 +183,5 @@
     /**
      *
      *
-     */
+     **/
 

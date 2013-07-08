@@ -969,7 +969,7 @@ test("Function each(...) handles objects built-in arrays and objects",function()
 
     context.counter = 0;
 
-    x.each([context.text], function(index, ch) {
+    x.each(context.text, function(index, ch) {
         eq(this.counter, index);
         eq(this.text[index], ch);
         this.counter++;

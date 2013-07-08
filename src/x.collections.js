@@ -6,12 +6,12 @@
      *
      *
      *
-     */
+     **/
     x.each = function each(collection, func, context) {
         var i,key,
             iLen =collection.length;
-        alert(collection[0])
-        if(collection instanceof Array || typeof collection === 'String') {
+
+        if(collection instanceof Array || typeof collection === 'string') {
             if (context !== undefined) {
                 for(i = 0; i < iLen; i += 1) {
 
@@ -42,27 +42,49 @@
 
     /**
      *
-     *
-     *
-     */
+     **/
     x.find = function find(coll, func, context) {
+        var i, iLen;
 
-        if(coll instanceof Array) {
+        if(coll instanceof Array || typeof coll === 'string') {
             if(context) {
                 for(i = 0, iLen=coll.length; i < iLen; i += 1) {
-                    if(coll[i] % 2 === 0) {
-                        return func.call(context, coll[i]);
-
+                    if (func.call(context, coll[i]) === true) {
+                        return coll[i];
                     }
                 }
             }
             else {
                 for(i = 0, iLen=coll.length; i < iLen; i += 1) {
-                    if(coll[i] % 2 === 0) {
-                        return func(coll[i]);
-
+                    if (func(coll[i]) === true) {
+                        return coll[i];
                     }
                 }
             }
         }
+        return null;
+    };
+
+
+    x.filter = function filter(coll, func, context) {
+        var i, iLen,
+            arr = [];
+
+        if(coll instanceof Array || typeof coll === 'string') {
+            if(context) {
+                for(i = 0, iLen=coll.length; i < iLen; i += 1) {
+                    if (func.call(context, coll[i]) === true) {
+                        arr[arr.length] = coll[i];
+                    }
+                }
+            }
+            else {
+                for(i = 0, iLen=coll.length; i < iLen; i += 1) {
+                    if (func(coll[i]) === true) {
+                        arr[arr.length] = coll[i];
+                    }
+                }
+            }
+        }
+        return arr;
     };
