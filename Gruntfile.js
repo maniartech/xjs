@@ -18,6 +18,7 @@ var src = [
         'src/x.string.js',
         'src/x.array.js',
         'src/x.objects.js',
+        'src/x.collections.js',
         'src/x.end.js'
     ];
 

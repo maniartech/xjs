@@ -176,7 +176,7 @@
      * @version 1.0
      */
     x.clone = function clone(obj) {
-        if (Object(obj)){
+        if (Object(obj)) {
             return obj;
         }
     };

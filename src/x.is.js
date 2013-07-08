@@ -30,7 +30,7 @@
      * @example
      * var obj = [{Fname: "Talha" Lname: "Maniar"}];
      * console.log(x.isObject(obj));  //Print true
-     * console.log(x.isObject({1,2,3})); //Prints false
+     * console.log(x.isObject([1,2,3])); //Prints false
      *
      * @version 1.0
      */
@@ -93,24 +93,6 @@
     };
 
     /**
-     * Check whether the parameter value is a Finite.
-     *
-     * @function isFinites(val)
-     * @params {any} val Any value which need to be test in an Finite Number.
-     * @returns {boolean} Returns `true` if value is an `Finite` otherwise `false`.
-     *
-     * @example
-     * var fin = (-101);
-     * console.log(x.isFinites(fin));  //Print true
-     * console.log(x.isFinites("Moe")); //Prints false
-     *
-     * @version 1.0
-     */
-    x.isFinites = function isfinites(val) {
-        return Number(val) && isFinite(val);
-    };
-
-     /**
      * Check whether the specified value is an Boolean.
      *
      * @function isBoolean(val)
@@ -161,5 +143,5 @@
      * @version 1.0
      */
     x.isRegExp = function isRegExp(val) {
-        return val === Object(val);
+        return val instanceof RegExp;
     };

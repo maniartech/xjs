@@ -756,9 +756,227 @@ test("Function isObject(...) should check the values ia an Object or not",functi
     bool = x.isObject({1:1});
     eq(bool, true);
 
-    bool = x.isArray();
+    bool = x.isObject();
     eq(bool, false);
 
-    bool = x.isArray([""]);
+    bool = x.isObject([""]);
     eq(bool, true);
 });
+
+test("Function isNullOrUndef(...) should check the values is null or undefined",function(){
+
+    var bool;
+
+    bool = x.isNullOrUndef(null);
+    eq(bool, true);
+
+    bool = x.isNullOrUndef(1, 2, 3);
+    eq(bool, false);
+
+    bool = x.isNullOrUndef();
+    eq(bool, true);
+
+    bool = x.isNullOrUndef([]);
+    eq(bool, false);
+
+    bool = x.isNullOrUndef({});
+    eq(bool, false);
+
+    bool = x.isNullOrUndef([""]);
+    eq(bool, false);
+
+    bool = x.isNullOrUndef(null);
+    eq(bool, true);
+
+    bool = x.isNullOrUndef();
+    eq(bool, true);
+
+    bool = x.isNullOrUndef(undefined);
+    eq(bool, true);
+
+    bool = x.isNullOrUndef(["abc", 1, 2, 3]);
+    eq(bool, false);
+});
+
+test("Function isString(...) should check the values is in String or not",function(){
+
+    var bool;
+
+    bool = x.isString("abc");
+    eq(bool, true);
+
+    bool = x.isString(1,2,3);
+    eq(bool, false);
+
+    bool = x.isString("");
+    eq(bool, true);
+
+    bool = x.isString(["abc"]);
+    eq(bool, false);
+
+    bool = x.isString({abc:"pqr"});
+    eq(bool, false);
+
+    bool = x.isString({});
+    eq(bool, false);
+
+    bool = x.isString();
+    eq(bool, false);
+
+    bool = x.isString("moe");
+    eq(bool, true);
+
+    bool = x.isString("1,2,3");
+    eq(bool, true);
+
+    bool = x.isString([{mohan:"pqr"}]);
+    eq(bool, false);
+
+});
+
+test("Function isNumber(...) should check the values is in Number or not",function(){
+
+    var bool;
+
+    bool = x.isNumber(1,2,3);
+    eq(bool, true);
+
+    bool = x.isNumber("");
+    eq(bool, false);
+
+    bool = x.isNumber([""]);
+    eq(bool, false);
+
+    bool = x.isNumber([1,3,4,5]);
+    eq(bool, false);
+
+    bool = x.isNumber(1, 2, 3, 4);
+    eq(bool, true);
+
+    bool = x.isNumber(1,2,3);
+    eq(bool, true);
+
+    bool = x.isNumber([]);
+    eq(bool, false);
+
+    bool = x.isNumber({});
+    eq(bool, false);
+
+    bool = x.isNumber(1,3,4,5);
+    eq(bool, true);
+
+    bool = x.isNumber();
+    eq(bool, false);
+});
+
+test("Function isDate(...) should check the values is a Date",function(){
+
+    var bool;
+
+    bool = x.isDate(new Date());
+    eq(bool, true);
+
+    bool = x.isDate("");
+    eq(bool, false);
+
+    bool = x.isDate([]);
+    eq(bool, false);
+
+    bool = x.isDate({});
+    eq(bool, false);
+
+    bool = x.isDate();
+    eq(bool, false);
+
+});
+
+test("Function isRegExp(...) should check the parameter is a Regular Expression",function(){
+
+    var bool;
+
+    bool = x.isRegExp(/moe/);
+    eq(bool, true);
+
+    bool = x.isRegExp("");
+    eq(bool, false);
+
+    bool = x.isRegExp(/moe/,/a/);
+    eq(bool, true);
+
+    bool = x.isRegExp();
+    eq(bool, false);
+
+    bool = x.isRegExp(["/a/"]);
+    eq(bool, false);
+
+    bool = x.isRegExp({});
+    eq(bool, false);
+
+    bool = x.isRegExp(/b/,/c/);
+    eq(bool, true);
+
+    bool = x.isRegExp(/0/,/1/);
+    eq(bool, true);
+
+    bool = x.isRegExp(/""/,/""/);
+    eq(bool, true);
+
+    bool = x.isRegExp([]);
+    eq(bool, false);
+
+});
+
+test("Function isBoolean(...) should check the parameter is a Boolean",function(){
+
+    var bool;
+
+    bool = x.isBoolean(true);
+    eq(bool, true);
+
+    bool = x.isBoolean(false);
+    eq(bool, true);
+
+    bool = x.isBoolean("");
+    eq(bool, false);
+
+    bool = x.isBoolean([]);
+    eq(bool, false);
+
+    bool = x.isBoolean({});
+    eq(bool, false);
+
+    bool = x.isBoolean(true);
+    eq(bool, true);
+});
+
+
+module("Collection functions"); /////////////////////////////////////////////////
+
+test("Function each(...) handles objects built-in arrays and objects",function(){
+
+    expect(20);
+
+    var context = {
+        counter: 0,
+        text: "abcde"
+    };
+
+    x.each([1,2,3,4, 5], function(index, value) {
+        eq(this.counter, index);
+        eq(this.counter + 1, value);
+        this.counter++;
+    }, context) ;
+
+    context.counter = 0;
+
+    x.each([context.text], function(index, ch) {
+        eq(this.counter, index);
+        eq(this.text[index], ch);
+        this.counter++;
+    }, context);
+
+
+
+
+});
+

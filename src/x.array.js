@@ -1,5 +1,5 @@
 
-    //Array functions in xlib
+    //Array functions in xjs
 
     /**
      * Generates an array containing range of numbers based on specified parameters.
@@ -21,7 +21,7 @@
 
         step = step ? step : (start < stop) ? 1 : -1;
 
-        for(i = start; step > 0 ? i < stop : i > stop; i += step) {
+        for (i = start; step > 0 ? i < stop : i > stop; i += step) {
             result.push(i);
         }
         return result;
@@ -313,8 +313,8 @@
      *
      * @version 1.0
      */
-    x.rest = function(array, n, n1) {
-        return array.slice.call(array ,n === null || n1 ? 1 : n);
+    x.rest = function(array, n, val) {
+        return array.slice.call(array ,n === null || val ? 1 : n);
     };
 
     /**
@@ -323,7 +323,7 @@
      *
      * @function x.compact(array)
      * @params {Array} array The array1 value in x.compact.
-    //   * @returns {number} If the array has all the falsy values it remove the falsy
+     * @returns {number} If the array has all the falsy values it remove the falsy
      * values return only the number of an array
      * If array having all falsy value it return the empty array.
      *
