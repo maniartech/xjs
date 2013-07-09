@@ -64,8 +64,9 @@
         }
         return null;
     };
-
-
+    /**
+     *
+     **/
     x.filter = function filter(coll, func, context) {
         var i, iLen,
             arr = [];
@@ -87,4 +88,69 @@
             }
         }
         return arr;
+    };
+
+    /**
+     *
+     **/
+    x.reject = function reject(coll, func, context) {
+        var i, iLen,
+            arr = [];
+
+        if(coll instanceof Array || typeof coll === 'string') {
+            if(context) {
+                for(i = 0, iLen=coll.length; i < iLen; i += 1) {
+                    if (func.call(context, coll[i]) === true) {
+                        arr[arr.length] = coll[i];
+                    }
+                }
+            }
+            else {
+                for(i = 0, iLen=coll.length; i < iLen; i += 1) {
+                    if (func(coll[i]) === true) {
+                        arr[arr.length] = coll[i];
+                    }
+                }
+            }
+        }
+        return arr;
+    };
+    /**
+     *
+     **/
+    x.contains = function contains(array, val) {
+        var i,
+            iLen = array.length;
+        for(i=0; i < iLen; i++) {
+            if(array.indexOf(val)!== -1) {
+                return true;
+            }
+        }
+        return false;
+    };
+    /**
+     *
+     **/
+    x.pluck = function pluck(list, propertyName) {
+        var Arr = [],
+            i,
+            iLen= list.length;
+
+        for(i = 0; i < iLen; i++) {
+            Arr[i] = list[i][propertyName];
+        }
+        return Arr;
+    };
+
+    /**
+     *
+     **/
+    x.size = function size(obj) {
+        var i = 0,
+            key;
+
+        for (key in obj) {
+             i++;
+        }
+        return i;
     };
