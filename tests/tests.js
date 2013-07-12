@@ -975,8 +975,4 @@ test("Function each(...) handles objects built-in arrays and objects",function()
         this.counter++;
     }, context);
 
-
-
-
 });
-
